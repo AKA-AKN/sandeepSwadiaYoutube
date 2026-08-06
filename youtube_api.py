@@ -1,18 +1,13 @@
 import os
+import streamlit as st
 from googleapiclient.discovery import build
-import os
 
 try:
-    import streamlit as st
     API_KEY = st.secrets["YOUTUBE_API_KEY"]
 except Exception:
     from dotenv import load_dotenv
     load_dotenv()
     API_KEY = os.getenv("YOUTUBE_API_KEY")
-
-load_dotenv()
-
-API_KEY = os.getenv("YOUTUBE_API_KEY")
 
 youtube = build(
     "youtube",
